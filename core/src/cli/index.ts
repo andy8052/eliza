@@ -225,10 +225,12 @@ export async function startTwitter(runtime: IAgentRuntime) {
     );
     await wait();
     const twitterGenerationClient = new Client.TwitterGenerationClient(runtime);
+    const twitterSportsPicksClient = new Client.TwitterSportsPicksClient(runtime);
 
     return [
         twitterInteractionClient,
         twitterSearchClient,
         twitterGenerationClient,
+        twitterSportsPicksClient,
     ];
 }
