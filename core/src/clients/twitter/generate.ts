@@ -31,7 +31,7 @@ export class TwitterGenerationClient extends ClientBase {
             this.generateNewTweet();
             setTimeout(
                 generateNewTweetLoop,
-                (Math.floor(Math.random() * (400 - 45 + 1)) + 15) * 60 * 1000
+                (Math.floor(Math.random() * (180 - 45 + 1)) + 15) * 60 * 1000
             ); // Random interval between 15-120 minutes (15 mins to 2 hours)
         };
         // setTimeout(() => {

@@ -57,7 +57,7 @@ export class TwitterSportsPicksClient extends ClientBase {
         const scheduleNextRun = () => {
             const now = new Date();
             const targetTime = new Date(now);
-            targetTime.setHours(11, 45, 0, 0); // Run at 11:45 AM ET
+            targetTime.setHours(10, 0, 0, 0); // Run at 11:45 AM ET
 
             // If it's already past 11:45 AM, schedule for next day
             if (now > targetTime) {

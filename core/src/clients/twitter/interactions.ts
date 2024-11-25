@@ -84,7 +84,7 @@ export class TwitterInteractionClient extends ClientBase {
                 (Math.floor(Math.random() * (120 - 60 + 1)) + 2) * 60 * 1000
             ); // Random interval between 2-5 minutes
         };
-        handleTwitterInteractionsLoop();
+        // handleTwitterInteractionsLoop();
     }
 
     constructor(runtime: IAgentRuntime) {
