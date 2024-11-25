@@ -78,7 +78,7 @@ export class TwitterSportsPicksClient extends ClientBase {
         scheduleNextRun();
         
         // Also run immediately if we're just starting up
-        this.searchAndAnalyzePicks();
+        // this.searchAndAnalyzePicks();
     }
 
     constructor(runtime: IAgentRuntime) {

@@ -38,6 +38,8 @@ About {{agentName}} (@{{twitterUserName}}):
 
 {{characterPostExamples}}
 
+IMPORTANT: Your response MUST be under 280 characters. Do not use line breaks.
+
 {{postDirections}}
 
 Recent interactions between {{agentName}} and other users:
@@ -45,7 +47,7 @@ Recent interactions between {{agentName}} and other users:
 
 {{recentPosts}}
 
-# Task: Generate a post in the voice, style and perspective of {{agentName}} (@{{twitterUserName}}):
+# Task: Generate a single post under 280 characters in the voice, style and perspective of {{agentName}} (@{{twitterUserName}}):
 {{currentPost}}
 
 ` + messageCompletionFooter;
@@ -79,7 +81,7 @@ export class TwitterInteractionClient extends ClientBase {
             this.handleTwitterInteractions();
             setTimeout(
                 handleTwitterInteractionsLoop,
-                (Math.floor(Math.random() * (15 - 10 + 1)) + 2) * 60 * 1000
+                (Math.floor(Math.random() * (120 - 60 + 1)) + 2) * 60 * 1000
             ); // Random interval between 2-5 minutes
         };
         handleTwitterInteractionsLoop();
@@ -300,6 +302,12 @@ export class TwitterInteractionClient extends ClientBase {
             context,
             modelClass: ModelClass.SMALL,
         });
+
+        // Add character limit check
+        if (response.text && response.text.length > 280) {
+            console.log("Response exceeded 280 characters, truncating...");
+            response.text = response.text.slice(0, 277) + "...";
+        }
 
         console.log("response", response);
 
